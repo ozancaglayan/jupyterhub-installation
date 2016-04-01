@@ -21,6 +21,12 @@ Next create a Python 2.7 environment and anaconda distribution to that environme
 # conda install -n py27 anaconda
 ```
 
+Install python 2.7 kernel for serving python2 notebooks as well:
+```
+# source activate py27
+# ipython kernel install
+```
+
 Now when you logout and login back, your shell will default to the python3 environment:
 
 ```
