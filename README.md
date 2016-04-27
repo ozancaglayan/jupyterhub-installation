@@ -14,10 +14,10 @@ Go download anaconda Python 3 installer from https://www.continuum.io/downloads 
 # echo 'export PATH=/opt/anaconda3/bin:$PATH' > /etc/profile.d/anaconda.sh
 ```
 
-Next create a Python 2.7 environment and anaconda distribution to that environment:
+Next create a Python 2.7 environment and install anaconda distribution to that environment:
 
 ```
-# conda create --name py27 python=3
+# conda create --name py27 python=2.7
 # conda install -n py27 anaconda
 ```
 
