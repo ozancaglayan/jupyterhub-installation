@@ -21,6 +21,8 @@ Next create a Python 2.7 environment and install anaconda distribution to that e
 # conda install -n py27 anaconda
 ```
 
+If you would like to change your default environment to `py27` just modify `/etc/profile.d/anaconda.sh` and set the PATH to `/opt/anaconda3/envs/py27/bin`.
+
 Install python 2.7 kernel for serving python2 notebooks as well:
 ```
 # source activate py27
