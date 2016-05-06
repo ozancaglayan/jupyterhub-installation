@@ -30,6 +30,7 @@ while IFS=, read USER PW; do
 done < <(egrep -v '^#' users.list)
 
 # Create fontconfig-cache
+echo "Creating fontconfig cache in HOME folders..."
 for u in $(ls /home/); do
   sudo -H -u $u fc-cache
 done
