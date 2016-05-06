@@ -4,12 +4,12 @@
 addgroup lecturers
 
 # Add lecturer users
-while IFS=, read USER PW; do
-    echo "Creating lecturer $USER"
+while IFS=, read NAME PW; do
+    echo "Creating lecturer $NAME"
     if [ -z $PW ]; then
-        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers $user
+        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers $NAME
     else
-        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers -p "$PW" $user
+        useradd -s "/bin/bash" -m -N -g users -G sudo,adm,lecturers -p "$PW" $NAME
     fi
 done < <(egrep -v '^#' lecturers.list)
 
@@ -20,14 +20,14 @@ echo "AllowUsers $ADMINS" >> /etc/ssh/sshd_config
 systemctl reload ssh.service
 
 # Add regular users
-while IFS=, read USER PW; do
-    echo "Creating student $USER"
+while IFS=, read NAME PW; do
+    echo "Creating student $NAME"
     if [ -z $PW ]; then
-        useradd -s "/bin/bash" -m -N -g users $user
+        useradd -s "/bin/bash" -m -N -g users $NAME
     else
-        useradd -s "/bin/bash" -m -N -g users -p "$PW" $user
+        useradd -s "/bin/bash" -m -N -g users -p "$PW" $NAME
     fi
-done < <(egrep -v '^#' users.list)
+done < <(egrep -v '^#' students.list)
 
 # Create fontconfig-cache
 echo "Creating fontconfig cache in HOME folders..."
