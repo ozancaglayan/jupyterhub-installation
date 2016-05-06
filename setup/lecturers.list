@@ -1,3 +1,5 @@
-# Add list of lecturer usernames and optionally passwords in
+# Add list of lecturer usernames and optionally crypted passwords in
 # the following format:
-# username,password
+# username(,password)
+lect1
+lect2
