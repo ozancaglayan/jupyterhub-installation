@@ -23,7 +23,7 @@ fi
 
 # Check anaconda and Python versions
 CONDA_PATH=`which conda`
-if [ "x$?" != "x0"]; then
+if [ "x$?" != "x0" ]; then
     echo "conda is not in the PATH!"
     exit 1
 fi
