@@ -1,5 +1,7 @@
 #!/bin/bash
 
+apt-get update
+
 # Install system dependencies
 apt-get install -y  libsm6 libxrender1 libfontconfig1 build-essential gcc-multilib \
                     npm nodejs-legacy octave \
