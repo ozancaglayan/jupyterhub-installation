@@ -79,6 +79,13 @@ We also need to install python 2.7 kernel for serving Python 2 notebooks. For th
 # ipython kernel install
 ```
 
+### Installing R Kernel
+
+Adding support for R kernels requires a little bit more work. First add official R repositories to Ubuntu by following the steps [here](https://cran.r-project.org/bin/linux/ubuntu/README). After updating your repository index with `apt-get upgrade` install the following packages:
+```
+apt-get install r-base r-base-dev
+```
+
 ## Testing the bare minimum
 
 You may want to try if everything went smoothly by running the JupyterHub with default configuration:
