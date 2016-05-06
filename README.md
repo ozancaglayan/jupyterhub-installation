@@ -66,7 +66,7 @@ Finally for going back to the default Python 3 environment, you can type `source
 
 ## Installation of JupyterHub and the kernels
 
-Now we can proceed with the installation of Jupyter packages. First let's install JupyterHub and Jupyter kernels for `bash` and `octave`:
+Now we can proceed with the installation of Jupyter packages. First let's install JupyterHub and Jupyter kernels for `bash` and `octave`. Please be sure that you are in the default Python 3.x environment before proceeding the following steps:
 
 ```
 # pip install jupyterhub
@@ -92,35 +92,14 @@ You may want to try if everything went smoothly by running the JupyterHub with d
 
 Now visit `http://<ip address>:8000` and login with your UNIX credentials. Check whether the **New** menu contains `bash`, `octave`, `Python 2` and `Python 3`. Create some notebooks, execute cells to catch possible problems.
 
-## Users and Groups
+## JupyterHub configuration
 
-Let's add two groups for students and lecturers for further account and permission management:
-```
-# addgroup students
-Adding group `students' (GID 1000) ...
-Done.
-# addgroup lecturers
-Adding group `lecturers' (GID 1001) ...
-Done.
-```
-
-### Automatically create student users
-
-Obtain the list of students from your department and automatically create users for them on the system.
-
-## Jupyter-hub installation
+Here I provide the shell commands that I used to create a JupyterHub configuration that suits my needs. For further configuration details, you may want to visit the related [website](https://github.com/jupyterhub/jupyterhub/blob/master/docs/source/getting-started.md).
 
  - Create a folder called `/etc/jupyterhub` with permissions `700`
  - Proceed to the instructions at http://www.akadia.com/services/ssh_test_certificate.html to create a self-signed SSL certificate or even better use a CA-certified SSL certificate. Put your SSL related files under `/etc/jupyterhub`
  - Proceed to the installation instructions at https://github.com/jupyter/jupyterhub
 
-```
-# pip install jupyterhub
-```
-jupyterhub --generate-config -f /etc/jupyterhub/jupyterhub.py
 
 
 
-## Setup a send-only mail server
-
-Proceed through the tutorial https://www.digitalocean.com/community/tutorials/how-to-install-and-configure-postfix-as-a-send-only-smtp-server-on-ubuntu-14-04
