@@ -94,7 +94,7 @@ Now visit `http://<ip address>:8000` and login with your UNIX credentials. Check
 
 ## JupyterHub configuration
 
-Here I provide the shell commands that I used to create a JupyterHub configuration that suits my needs. For further configuration details, you may want to visit the related [website](https://jupyterhub.readthedocs.io/en/latest/getting-started.html).
+Here I provide the shell commands that I used to create a JupyterHub configuration that suits my needs. For further configuration details, you may want to visit JupyterHub's [documentation](https://jupyterhub.readthedocs.io/en/latest/getting-started.html).
 
 Note that since our server will only be used for educational purposes and will not be accessible from outside of the university, I choosed to go with plain HTTP which is normally **not recommended**. For supporting HTTPS, please [check here](https://jupyterhub.readthedocs.io/en/latest/getting-started.html#ssl-encryption).
 
