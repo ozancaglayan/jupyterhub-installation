@@ -2,7 +2,7 @@
 
 This document explains all the steps for a working JupyterHub installation on Ubuntu 16.04 LTS. The machine used for this purpose is a Virtual Machine on VMWare ESX server in our university. The VM has 6 CPU's, 32GB of RAM and 100GB of disk space partitioned into 25GB `rootfs` and 75GB `/home` folder.
 
-After installing Ubuntu 16.04 LTS x86_64, here's what I did to create a fully working JupyterHub server :)
+After installing Ubuntu 16.04 LTS x86_64, here's what I did to create a fully working JupyterHub server. All the steps below are also available through a set `bash` scripts in this repository's `scripts` folder.
 
 ## Installing system dependencies
 
