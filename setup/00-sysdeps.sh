@@ -20,3 +20,13 @@ mkdir -p /etc/skel/notebooks &> /dev/null
 if [ ! -d /etc/skel/notebooks ]; then
   mkdir /etc/skel/notebooks
 fi
+
+# Check anaconda and Python versions
+CONDA_PATH=`which conda`
+if [ "x$?" != "x0"]; then
+    echo "conda is not in the PATH!"
+    exit 1
+fi
+
+# Check Python version
+python --version 2>&1 | grep "Python 3\.[^012]" || { echo "You need Python >= 3.3."; exit 1; }
