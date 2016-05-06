@@ -1,0 +1,11 @@
+[Unit]
+Description=Jupyterhub Idle Killer
+After=syslog.target network.target jupyterhub.service
+
+[Service]
+User=root
+Environment="PATH=/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/srv/jupyterhub/cull_idle_servers --cull-every=600 --timeout=14400 --log-file-prefix=/var/log/jupyterhub-idle-killer.log
+
+[Install]
+WantedBy=multi-user.target

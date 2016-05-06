@@ -1,0 +1,11 @@
+[Unit]
+Description=Jupyterhub
+After=syslog.target network.target
+
+[Service]
+User=root
+Environment="PATH=/opt/anaconda3/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"
+ExecStart=/opt/anaconda3/bin/jupyterhub -f /etc/jupyterhub/jupyterhub.py --no-ssl
+
+[Install]
+WantedBy=multi-user.target
