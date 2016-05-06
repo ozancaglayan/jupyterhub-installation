@@ -1,6 +1,6 @@
 # Add list of student usernames and optionally crypted passwords in
 # the following format:
 # username,password
-user1,pwd1
-user2,pwd2
-user3,pwd3
+student1
+student2
+student3

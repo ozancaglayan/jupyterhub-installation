@@ -1,5 +1,7 @@
 # Add list of lecturer usernames and optionally crypted passwords in
 # the following format:
 # username(,password)
-lect1
+lect1,leyq4v7EJMyRs
 lect2
+lect3
+lect4
