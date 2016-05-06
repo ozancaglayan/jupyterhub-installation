@@ -29,7 +29,8 @@ while IFS=, read NAME PW; do
     fi
 done < <(egrep -v '^#' students.list)
 
-# Create fontconfig-cache
+# Create fontconfig-cache so that the first execution of cells
+# don't take time with some ugly warning messages.
 echo "Creating fontconfig cache in HOME folders..."
 for u in $(ls /home/); do
   sudo -H -u $u fc-cache
