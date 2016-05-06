@@ -10,10 +10,10 @@ After installing Ubuntu 16.04 LTS x86_64, here's what we did to create a fully w
 
 The following packages are needed in order for the JupyterHub and their components to work flawlessly. `pandoc` and `texlive-*` packages are necessary for saving a Jupyter notebook as PDF. We also installed `octave` as we'll provide an `octave` kernel for the users besides Python.
 ```
-# apt install libsm6 libxrender1 libfontconfig1 build-essential gcc-multilib
-# apt install npm nodejs-legacy octave
-# apt install pandoc dvipng
-# apt install texlive-latex-base dvipng texlive-latex-recommended \
+# apt-get install libsm6 libxrender1 libfontconfig1 build-essential gcc-multilib
+# apt-get install npm nodejs-legacy octave
+# apt-get install pandoc dvipng
+# apt-get install texlive-latex-base dvipng texlive-latex-recommended \
               texlive-fonts-recommended cm-super texlive-latex-extra
 
 # npm install -g configurable-http-proxy
