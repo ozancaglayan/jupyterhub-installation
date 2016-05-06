@@ -46,3 +46,8 @@ cp data/jupyterhub.service /etc/systemd/system
 cp data/jupyterhub-idle-killer.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable jupyterhub.service jupyterhub-idle-killer.service
+
+# Optional: Install cull_idle_servers
+curl https://raw.githubusercontent.com/jupyterhub/jupyterhub/master/examples/cull-idle/cull_idle_servers.py \
+    -o ${SERVDIR}/cull-idle-servers
+
