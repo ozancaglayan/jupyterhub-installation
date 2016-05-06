@@ -14,7 +14,7 @@ while IFS=, read NAME PW; do
 done < <(egrep -v '^#' lecturers.list)
 
 # Add some admin users, add them to SSHD allowed list
-ADMINS=`tr -d "\n" "" < admins.list`
+ADMINS=`tr "\n" " " < admins.list`
 echo "Administrators with SSH access: $ADMINS"
 echo "AllowUsers $ADMINS" >> /etc/ssh/sshd_config
 systemctl reload ssh.service
