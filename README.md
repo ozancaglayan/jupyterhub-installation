@@ -30,7 +30,7 @@ I didn't want to clutter each login and also JupyterHub's log files with Ubuntu 
 
 ## Installation of Anaconda
 
-I decided to use the Anaconda distribution for Python to ease management of the Python ecosystem. Go [https://www.continuum.io/downloads](download) the latest Anaconda Python 3 installer from  and install it under `/opt/anaconda3`. Change `PATH` globally so that every user starts to use the new anaconda distribution for their default Python environment:
+I decided to use the Anaconda distribution for Python to ease management of the Python ecosystem. Go [download](https://www.continuum.io/downloads) the latest Anaconda Python 3 installer from  and install it under `/opt/anaconda3`. Change `PATH` globally so that every user starts to use the new anaconda distribution for their default Python environment:
 
 ```
 # echo 'export PATH=/opt/anaconda3/bin:$PATH' > /etc/profile.d/anaconda.sh
