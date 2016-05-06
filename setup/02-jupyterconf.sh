@@ -32,11 +32,16 @@ echo "c.JupyterHub.db_url = '${SERVDIR}/jupyterhub.sqlite'" >> $CONF
 echo "c.JupyterHub.extra_log_file = '${LOGFILE}'" >> $CONF
 echo "c.JupyterHub.logo_file = '${SERVDIR}/logo.png'" >> $CONF
 echo "c.Spawner.notebook_dir = '~/notebooks'" >> $CONF
-
-#echo "c.Authenticator.admin_users = {'ocaglayan', 'mlafond', 'dberthet'}" >> $CONF
-#echo "c.JupyterHub.ssl_key = '/var/log/jupyterhub.log'" >> $CONF
-#echo "c.JupyterHub.ssl_cert = '/var/log/jupyterhub.log'" >> $CONF
+echo "c.Authenticator.admin_users = {'admin1', 'admin2', 'admin3'}" >> $CONF
 
 # Restrict permissions
 chmod 600 ${CONFDIR}/*
 chmod 600 ${SERVDIR}/*
+
+# Install systemd services
+cp data/jupyterhub.service /etc/systemd/system
+cp data/jupyterhub-idle-killer.service /etc/systemd/system
+systemctl daemon-reload
+systemctl enable jupyterhub.service jupyterhub-idle-killer.service
+
+
