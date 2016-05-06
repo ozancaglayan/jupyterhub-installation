@@ -43,11 +43,24 @@ chmod 600 ${SERVDIR}/*
 
 # Install systemd services
 cp data/jupyterhub.service /etc/systemd/system
-cp data/jupyterhub-idle-killer.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable jupyterhub.service jupyterhub-idle-killer.service
 
 # Optional: Install cull_idle_servers
 curl https://raw.githubusercontent.com/jupyterhub/jupyterhub/master/examples/cull-idle/cull_idle_servers.py \
     -o ${SERVDIR}/cull-idle-servers
+chmod +x ${SERVDIR}/cull-idle-servers
 
+# Copy systemd file
+cp data/jupyterhub-idle-killer.service /etc/systemd/system
+
+# Generate API token
+API_TOKEN=`openssl rand -hex 32`
+
+# TODO: Pick an admin user here for the cull service
+API_USER="lect1"
+
+echo "c.JupyterHub.api_tokens = {'${API_TOKEN}' : '${API_USER}'}" >> $CONFFILE
+sed -i "s/%%APITOKEN%%/${API_TOKEN}/" /etc/systemd/system/jupyterhub-idle-killer.service
+
+systemctl enable jupyterhub-idle-killer.service
