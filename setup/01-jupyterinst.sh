@@ -1,5 +1,12 @@
 #!/bin/bash
 
+# Check anaconda and Python versions
+CONDA_PATH=`which conda`
+if [ "x$?" != "x0" ]; then
+    echo "conda is not in the PATH!"
+    exit 1
+fi
+
 # JupyterHub requires Python >= 3.3
 # To run the single-user servers we need jupyter notebook >= 4
 python --version 2>&1 | grep "Python 3\.[^012]" || { echo "You need Python >= 3.3."; exit 1; }
