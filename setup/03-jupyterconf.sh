@@ -24,6 +24,9 @@ PROXY_TOKEN=`openssl rand -hex 32`
 # Copy over logo
 cp data/logo.png ${SERVDIR}
 
+# Get admin users
+ADMINS=`python -c 'print(set(open("admins.list").read().strip().split("\n")))'`
+
 # Setup configuration
 echo "c.JupyterHub.proxy_auth_token = '$PROXY_TOKEN'" >> $CONF
 echo "c.JupyterHub.cookie_secret_file = '${SERVDIR}/cookie_secret'" >> $CONF
@@ -32,7 +35,7 @@ echo "c.JupyterHub.db_url = '${SERVDIR}/jupyterhub.sqlite'" >> $CONF
 echo "c.JupyterHub.extra_log_file = '${LOGFILE}'" >> $CONF
 echo "c.JupyterHub.logo_file = '${SERVDIR}/logo.png'" >> $CONF
 echo "c.Spawner.notebook_dir = '~/notebooks'" >> $CONF
-echo "c.Authenticator.admin_users = {'admin1', 'admin2', 'admin3'}" >> $CONF
+echo "c.Authenticator.admin_users = $ADMINS" >> $CONF
 
 # Restrict permissions
 chmod 600 ${CONFDIR}/*
@@ -43,5 +46,3 @@ cp data/jupyterhub.service /etc/systemd/system
 cp data/jupyterhub-idle-killer.service /etc/systemd/system
 systemctl daemon-reload
 systemctl enable jupyterhub.service jupyterhub-idle-killer.service
-
-
