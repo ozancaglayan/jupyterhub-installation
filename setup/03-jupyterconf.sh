@@ -28,14 +28,14 @@ cp data/logo.png ${SERVDIR}
 ADMINS=`python -c 'print(set(open("admins.list").read().strip().split("\n")))'`
 
 # Setup configuration
-echo "c.JupyterHub.proxy_auth_token = '$PROXY_TOKEN'" >> $CONF
-echo "c.JupyterHub.cookie_secret_file = '${SERVDIR}/cookie_secret'" >> $CONF
-echo "c.JupyterHub.cookie_max_age_days = 1" >> $CONF
-echo "c.JupyterHub.db_url = '${SERVDIR}/jupyterhub.sqlite'" >> $CONF
-echo "c.JupyterHub.extra_log_file = '${LOGFILE}'" >> $CONF
-echo "c.JupyterHub.logo_file = '${SERVDIR}/logo.png'" >> $CONF
-echo "c.Spawner.notebook_dir = '~/notebooks'" >> $CONF
-echo "c.Authenticator.admin_users = $ADMINS" >> $CONF
+echo "c.JupyterHub.proxy_auth_token = '$PROXY_TOKEN'" >> $CONFFILE
+echo "c.JupyterHub.cookie_secret_file = '${SERVDIR}/cookie_secret'" >> $CONFFILE
+echo "c.JupyterHub.cookie_max_age_days = 1" >> $CONFFILE
+echo "c.JupyterHub.db_url = '${SERVDIR}/jupyterhub.sqlite'" >> $CONFFILE
+echo "c.JupyterHub.extra_log_file = '${LOGFILE}'" >> $CONFFILE
+echo "c.JupyterHub.logo_file = '${SERVDIR}/logo.png'" >> $CONFFILE
+echo "c.Spawner.notebook_dir = '~/notebooks'" >> $CONFFILE
+echo "c.Authenticator.admin_users = $ADMINS" >> $CONFFILE
 
 # Restrict permissions
 chmod 600 ${CONFDIR}/*
